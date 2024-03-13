@@ -39,7 +39,8 @@ async fn main() {
         .expect("Unable to get storage dir");
     let config: Config = quickcfg::load(storage_location).await;
     if config.gitlab.token == DEFAULT_TOKEN {
-        eprintln!("The config file is stored at: {storage_location}");
+        eprintln!("The config file is stored at: {storage_location}, Please add your token there.");
+        return;
     }
 
     let current_folder = std::env::current_dir().expect("Unabel to get current folder");
